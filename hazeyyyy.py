@@ -3,6 +3,16 @@ from PIL import Image
 import streamlit as st
 import cv2
 import os
+import sys
+import subprocess
+
+# Try importing cv2, install if missing
+try:
+    import cv2
+except ModuleNotFoundError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "opencv-python-headless==4.7.0.72"])
+    import cv2
+
 import urllib.request
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, WebRtcMode
 
